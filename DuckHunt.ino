@@ -247,7 +247,7 @@ class Duck
     };
 };
 
-Duck duck;
+Duck duck; //goose
 
 Duck duck2;
 
