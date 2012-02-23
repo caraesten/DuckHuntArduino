@@ -1,0 +1,15 @@
+Duck Hunt!
+-By Esten Hurtle, 2012
+-For Scott Hudson's Applied Gadgets class
+
+Duck Hunt is copyright Nintendo, 1984
+This is a fan remake and all that jazz.
+
+If Nintendo gets upset, replace "Duck Hunt" with
+"AMAZING LIGHTGUN MINI-VIDEO-GAME EXTRAVAGANZA" :)
+
+I've never done anything with electronics before,
+so apologies for my code, which is probably not that
+great. I'm a n00b. Especially with bit-shifting and
+manipulating registers. I like high-level things like
+Python most of the time. Bits are scary.
