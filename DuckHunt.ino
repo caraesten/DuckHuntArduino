@@ -14,7 +14,7 @@
 /  so apologies for my code, which is probably not that
 /  great. I'm a n00b. Especially with bit-shifting and
 /  manipulating registers. I like high-level things like
-/  Python most of the time. Bits are scary.
+/  Python most of the time. Until now, bits scared me.
 /
 */
 
