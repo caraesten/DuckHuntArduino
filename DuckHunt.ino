@@ -103,10 +103,10 @@ int dog[8][8] = {
   {0,0,1,1,1,1,0,0}
 };
 
-/* The percent delta (8%) between
+/* The percent delta (20%) between
     an all-bright matrix, and a 
     target */
-float deltaPercentHit = 0.08;
+float deltaPercentHit = 0.20;
 
 class Duck
 {
@@ -394,23 +394,16 @@ int detectHit(){
      the actual duck hit calculation. That said, I'll probably
      do a list-based system later, since it just makes more sense. */
   
-  // Record # of measurements
-  int measurements = 0;
-  // Record total resistance
-  int total = 0;
-  
+
+  int columnVal[WIDTH] = {0};
   for (int i = 0; i < WIDTH; i++){
     digitalWrite(columnPins[i], HIGH);
     for (int y = 0; y < HEIGHT; y++){
         digitalWrite(rowPins[y], LOW);
     }
-    total += analogRead(photoPin);
-    measurements += 1;
+    columnVal[i] = analogRead(photoPin);
     clearColumn(i);
   }
-  
-  // Average measurements
-  int avgOn = total / measurements;
   
   // Create the large target, making it easier to hit
   makeBigTarget();
@@ -427,7 +420,7 @@ int detectHit(){
         digitalWrite(rowPins[y], HIGH);
       }
       // Check to see if the position of the "scan line" is in the right place, if the resistance difference indicates a hit
-      if (analogRead(photoPin) < avgOn - (deltaPercentHit * avgOn) && bigTargetMatrix[x][y] == 1){
+      if (analogRead(photoPin) < columnVal[x] - (deltaPercentHit * columnVal[i]) && bigTargetMatrix[x][y] == 1){
         // Check to see if the current position of the duck is within two pixels of the current "scan line" position.
         // This isn't wholly necessary, but should cover any weirdness with correspondence between matrix and duck
         if((abs(x - duck.getX()) < 2 && abs(y - duck.getY()) < 2)){
